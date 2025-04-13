@@ -16,6 +16,11 @@ public class  MyArrayList<T> implements MyList<T> {
     }
 
     @Override
+    public void add(int T) {
+
+    }
+
+    @Override
     public void remove(int index){
         checkIndex(index);
         for (int i = index; i < length - 1; i++) {
@@ -28,6 +33,21 @@ public class  MyArrayList<T> implements MyList<T> {
     public T get(int index) {
         checkIndex(index);
         return (T) elements[index];
+    }
+
+    @Override
+    public void add(int index, T item) {
+        if (index < 0 || index > length) {
+            throw new IndexOutOfBoundsException("Index: " + index);
+        }
+        if (length == elements.length) {
+            increaseCapacity();
+        }
+        for (int i = length; i > index; i--) {
+            elements[i] = elements[i - 1];
+        }
+        elements[index] = item;
+        length++;
     }
 
     @Override

@@ -27,6 +27,16 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
+    public void add(int T) {
+
+    }
+
+    @Override
+    public void add(int index, T item) {
+
+    }
+
+    @Override
     public T get(int index) {
         checkIndex(index);
         MyNode<T> current = head;
